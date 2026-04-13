@@ -1,136 +1,43 @@
-{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { -webkit-font-smoothing: antialiased; scroll-behavior: smooth; overflow-x: hidden; }
 
-body {
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    scroll-behavior: smooth;
-    overflow-x: hidden;
-    background-color: #fff;
-    color: #0f172a; /* slate-900 */
-}
-
-/* --- 2. TYPOGRAPHY --- */
-h1, h2, h3, h4, .logo {
-    font-family: 'Montserrat', sans-serif;
-}
-
-p, a, button, input {
-    font-family: 'Lato', sans-serif;
-}
-
-/* --- 3. ANIMATIONS --- */
+/* Animations */
 @keyframes fade-up {
-    from { 
-        opacity: 0; 
-        transform: translateY(30px); 
-    }
-    to { 
-        opacity: 1; 
-        transform: translateY(0); 
-    }
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
 }
+.animate-fade-up { animation: fade-up 1.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
 
-.animate-fade-up {
-    animation: fade-up 1.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-}
-
-/* Эффект появления при скролле (Reveal) */
 .reveal {
     opacity: 0;
     transform: translateY(40px);
     transition: all 1.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
+.reveal.active { opacity: 1; transform: translateY(0); }
 
-.reveal.active {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* --- 4. HEADER & NAV --- */
-#main-header {
-    transition: all 0.5s ease;
-}
-
-/* Состояние хедера при скролле */
+/* Header & Menu */
 .header-scrolled {
     background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(15px);
     padding: 0.75rem 0 !important;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.03);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
 }
 
-.header-scrolled .logo, 
-.header-scrolled a {
-    color: #000;
-}
+header.menu-active { color: #000 !important; }
 
-/* --- 5. COMPONENTS --- */
+#overlay-menu.open { opacity: 1; pointer-events: auto; }
+.menu-link { transform: translateY(20px); opacity: 0; transition: all 0.6s ease; }
+#overlay-menu.open .menu-link { transform: translateY(0); opacity: 1; }
 
-/* Карточки резиденций */
-.residence-card img {
-    transition: transform 1.5s cubic-bezier(0.16, 1, 0.3, 1);
-    will-change: transform;
-}
+/* Language Switcher */
+.lang-btn.active { text-decoration: underline; text-underline-offset: 4px; opacity: 1; }
 
-.residence-card:hover img {
-    transform: scale(1.08);
-}
+/* Cards */
+.residence-card img { transition: transform 1.5s cubic-bezier(0.16, 1, 0.3, 1); }
+.residence-card:hover img { transform: scale(1.08); }
 
-/* Иконки инфраструктуры */
-.grayscale {
-    filter: grayscale(100%);
-    opacity: 0.6;
-    transition: all 0.5s ease;
-}
+.grayscale { filter: grayscale(100%); transition: all 0.5s ease; }
+.group:hover .grayscale { filter: grayscale(0%); transform: translateY(-3px); }
 
-.group:hover .grayscale {
-    filter: grayscale(0%);
-    opacity: 1;
-    transform: translateY(-3px);
-}
-
-/* Кастомный скроллбар (премиальный вид) */
-::-webkit-scrollbar {
-    width: 6px;
-}
-
-::-webkit-scrollbar-track {
-    background: #f8fafc;
-}
-
-::-webkit-scrollbar-thumb {
-    background: #0f172a;
-}
-
-/* --- 6. VIDEO BACKGROUND --- */
-video {
-    filter: brightness(0.4);
-    object-fit: cover;
-}
-
-/* --- 7. UTILITIES --- */
-.container {
-    max-width: 1400px;
-}
-
-/* Плавный переход для всех ссылок */
-a {
-    transition: opacity 0.3s ease;
-}
-
-/* Адаптив для мобильных */
-@media (max-width: 768px) {
-    .animate-fade-up {
-        animation-duration: 1.2s;
-    }
-    
-    section {
-        padding-top: 4rem;
-        padding-bottom: 4rem;
-    }
-}
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-thumb { background: #000; }
