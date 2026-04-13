@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gardens of Eden | Luxury Residences Phuket</title>
+    <title>Gardens of Eden | High-End Architecture & Residences</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700&family=Lato:wght@300;400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;700&family=Lato:wght@300;400&display=swap" rel="stylesheet">
 </head>
 <body class="bg-white text-slate-900 font-['Lato'] antialiased">
 
@@ -16,12 +16,14 @@
                 GARDENS <span class="font-light">OF EDEN</span>
             </div>
             
-            <div class="hidden md:flex space-x-8 items-center uppercase text-xs tracking-widest font-medium">
+            <div class="hidden md:flex space-x-8 items-center uppercase text-[10px] tracking-[0.2em] font-medium">
+                <a href="#philosophy" class="hover:opacity-50 transition">Philosophy</a>
                 <a href="#projects" class="hover:opacity-50 transition">Residences</a>
                 <a href="#amenities" class="hover:opacity-50 transition">Infrastructure</a>
-                <div class="flex space-x-2 border-l pl-8 ml-4 border-slate-300" id="lang-switcher">
-                    <button class="font-bold underline" data-lang="en">EN</button>
-                    <button class="opacity-50" data-lang="ru">RU</button>
+                <a href="#process" class="hover:opacity-50 transition">Process</a>
+                <div class="flex space-x-2 border-l pl-6 ml-4 border-slate-300">
+                    <button class="font-bold underline">EN</button>
+                    <button class="opacity-50">RU</button>
                 </div>
             </div>
 
@@ -35,22 +37,51 @@
         <video autoplay loop muted playsinline class="absolute z-10 w-auto min-w-full min-h-full max-w-none object-cover brightness-[0.4]">
             <source src="your-video-path.mp4" type="video/mp4">
         </video>
-        
         <div class="relative z-20 text-center text-white px-4">
             <h1 class="text-4xl md:text-7xl font-['Montserrat'] font-light tracking-[0.2em] mb-6 translate-y-10 opacity-0 animate-fade-up">
                 A NEW STANDARD OF LUXURY
             </h1>
-            <p class="text-lg md:text-xl font-light tracking-widest mb-10 opacity-70">PHUKET • BANG TAO • 50M TO BEACH</p>
-            <button class="border border-white px-10 py-4 uppercase text-xs tracking-[0.3em] hover:bg-white hover:text-black transition-all duration-500">
-                Explore Eden
+            <p class="text-lg md:text-xl font-light tracking-widest mb-10 opacity-70 italic">Architecture with Meaning</p>
+            <button class="border border-white px-10 py-4 uppercase text-[10px] tracking-[0.3em] hover:bg-white hover:text-black transition-all duration-500">
+                Explore the Concept
             </button>
         </div>
     </section>
 
-    <section id="projects" class="py-32 bg-gray-50">
+    <section id="philosophy" class="py-32 bg-white">
         <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-['Montserrat'] font-light mb-20 text-center tracking-[0.2em] uppercase text-slate-400">The Residences</h2>
-            <div id="residences-grid" class="grid md:grid-cols-3 gap-12"></div>
+            <div class="grid md:grid-cols-2 gap-20 items-center">
+                <div>
+                    <span class="text-[10px] uppercase tracking-[0.5em] text-slate-400 block mb-6">Our Approach</span>
+                    <h2 class="text-4xl font-['Montserrat'] font-light leading-tight mb-8">Evolving beyond traditional <br>luxury spaces</h2>
+                    <p class="text-slate-500 leading-relaxed font-light mb-8">
+                        We believe that a project is not just a result, but a step towards a new lifestyle scenario. Our architecture combines innovative global practices with a personalized emotional touch.
+                    </p>
+                    <div class="flex space-x-12">
+                        <div>
+                            <p class="text-2xl font-light">150+</p>
+                            <p class="text-[9px] uppercase tracking-widest text-slate-400">Global Projects</p>
+                        </div>
+                        <div>
+                            <p class="text-2xl font-light">25</p>
+                            <p class="text-[9px] uppercase tracking-widest text-slate-400">Design Awards</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative">
+                    <img src="park-render.jpg" alt="Philosophy" class="w-full grayscale hover:grayscale-0 transition-all duration-1000">
+                    <div class="absolute -bottom-10 -left-10 bg-slate-50 p-10 hidden lg:block">
+                        <p class="text-xs italic text-slate-400">"Architecture that fits harmoniously <br>into the environment."</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="py-32 bg-gray-50">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-3xl font-['Montserrat'] font-light mb-20 tracking-[0.2em] uppercase text-slate-400">The Residences</h2>
+            <div id="residences-grid" class="grid md:grid-cols-3 gap-12 text-left"></div>
         </div>
     </section>
 
@@ -63,6 +94,43 @@
             <div id="amenities-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-16 gap-y-20"></div>
         </div>
     </section>
+
+    <section id="process" class="py-32 bg-slate-900 text-white">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div class="border-t border-white/20 pt-8">
+                    <span class="text-xs opacity-40">01</span>
+                    <h4 class="text-sm uppercase tracking-widest mt-4 mb-4">Concept Sketch</h4>
+                    <p class="text-xs opacity-60 font-light">Hand-drawn ideas to capture the soul of the space.</p>
+                </div>
+                <div class="border-t border-white/20 pt-8">
+                    <span class="text-xs opacity-40">02</span>
+                    <h4 class="text-sm uppercase tracking-widest mt-4 mb-4">BIM Modeling</h4>
+                    <p class="text-xs opacity-60 font-light">High-precision digital twin for perfect execution.</p>
+                </div>
+                <div class="border-t border-white/20 pt-8">
+                    <span class="text-xs opacity-40">03</span>
+                    <h4 class="text-sm uppercase tracking-widest mt-4 mb-4">Interior Design</h4>
+                    <p class="text-xs opacity-60 font-light">Functional and ergonomic solutions for daily life.</p>
+                </div>
+                <div class="border-t border-white/20 pt-8">
+                    <span class="text-xs opacity-40">04</span>
+                    <h4 class="text-sm uppercase tracking-widest mt-4 mb-4">Implementation</h4>
+                    <p class="text-xs opacity-60 font-light">Full management from inception to the final key.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-white py-20 border-t border-slate-100">
+        <div class="container mx-auto px-6 flex justify-between items-center text-[10px] uppercase tracking-[0.3em] text-slate-400">
+            <p>© 2026 | Art-Studio Eden</p>
+            <div class="flex space-x-8">
+                <a href="#">Instagram</a>
+                <a href="#">Behance</a>
+            </div>
+        </div>
+    </footer>
 
     <div id="contact-modal" class="fixed inset-0 z-[100] hidden items-center justify-center bg-black/90 backdrop-blur-md">
         <div class="bg-white p-12 max-w-lg w-full relative mx-4">
