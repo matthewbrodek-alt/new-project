@@ -5,102 +5,108 @@ const projectData = {
             title: "Eden Residences",
             phase: "Phase 1",
             distance: "50m to Beach",
-            img: "path-to-eden.jpg"
+            img: "assets/img/eden-render.jpg"
         },
         {
             id: "park",
             title: "Park Residences",
             phase: "Phase 2",
             distance: "300m to Beach",
-            img: "path-to-park.jpg"
+            img: "assets/img/park-render.jpg"
         },
         {
             id: "lake",
             title: "Lake Residences",
             phase: "Phase 3",
             distance: "500m to Beach",
-            img: "path-to-lake.jpg"
+            img: "assets/img/lake-render.jpg"
+        }
+    ],
+    infrastructure: [
+        {
+            id: 1,
+            title: "Underground Parking",
+            description: "Secure parking with direct elevator access to your private residence.",
+            icon: "assets/icons/parking.svg",
+            category: "Safety"
+        },
+        {
+            id: 2,
+            title: "Infinity Pool",
+            description: "Olympic-sized pool with panoramic views of Bang Tao Bay.",
+            icon: "assets/icons/pool.svg",
+            category: "Leisure"
+        },
+        {
+            id: 3,
+            title: "Etro Cafe",
+            description: "Artistic dining space featuring furniture and decor by Etro Home.",
+            icon: "assets/icons/cafe.svg",
+            category: "Lifestyle"
+        },
+        {
+            id: 4,
+            title: "Fitness & Yoga",
+            description: "Professional equipment and outdoor yoga decks integrated into nature.",
+            icon: "assets/icons/fitness.svg",
+            category: "Health"
+        },
+        {
+            id: 5,
+            title: "Concierge 24/7",
+            description: "Personalized assistance for bookings, transport, and private events.",
+            icon: "assets/icons/concierge.svg",
+            category: "Service"
+        },
+        {
+            id: 6,
+            title: "Kids' Club",
+            description: "Eco-friendly play areas designed for creative and safe education.",
+            icon: "assets/icons/kids.svg",
+            category: "Family"
         }
     ]
 };
 
-// 2. Отрисовка карточек
-const grid = document.getElementById('residences-grid');
+// --- 2. CORE FUNCTIONS ---
+
+// Render Residences
 function renderResidences() {
+    const grid = document.getElementById('residences-grid');
+    if (!grid) return;
+    
     grid.innerHTML = projectData.residences.map(item => `
-        <div class="residence-card group cursor-pointer overflow-hidden bg-white">
-            <div class="h-[450px] overflow-hidden">
-                <img src="${item.img}" alt="${item.title}" class="w-full h-full object-cover">
+        <div class="residence-card group cursor-pointer">
+            <div class="relative h-[500px] overflow-hidden bg-slate-200">
+                <img src="${item.img}" alt="${item.title}" class="w-full h-full object-cover transition-transform duration-[1.5s] group-hover:scale-110">
+                <div class="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors"></div>
             </div>
-            <div class="py-6">
-                <p class="text-[10px] uppercase tracking-[0.3em] text-slate-400 mb-2">${item.phase}</p>
-                <h3 class="text-xl font-['Montserrat'] font-light uppercase tracking-wider">${item.title}</h3>
-                <p class="text-sm text-slate-500 mt-2">${item.distance}</p>
-                <div class="mt-6 w-10 h-[1px] bg-black group-hover:w-full transition-all duration-700"></div>
+            <div class="py-8">
+                <span class="text-[10px] uppercase tracking-[0.4em] text-slate-400">${item.phase}</span>
+                <h3 class="text-xl font-['Montserrat'] font-light uppercase tracking-widest mt-2">${item.title}</h3>
+                <p class="text-xs text-slate-500 mt-3 font-light italic">${item.distance}</p>
+                <div class="mt-8 w-12 h-[1px] bg-black group-hover:w-full transition-all duration-1000"></div>
             </div>
         </div>
     `).join('');
 }
 
-// 3. Логика Header (Scroll Effect)
-window.addEventListener('scroll', () => {
-    const header = document.getElementById('main-header');
-    if (window.scrollY > 100) {
-        header.classList.add('header-scrolled');
-    } else {
-        header.classList.remove('header-scrolled');
-    }
-});
-
-// 4. Переключатель языков (Логика i18n)
-const langButtons = document.querySelectorAll('#lang-switcher button');
-langButtons.forEach(btn => {
-    btn.addEventListener('click', (e) => {
-        langButtons.forEach(b => b.classList.add('opacity-50', 'no-underline'));
-        e.target.classList.remove('opacity-50');
-        e.target.classList.add('font-bold', 'underline');
-        const selectedLang = e.target.dataset.lang;
-        console.log(`Switching language to: ${selectedLang}`);
-        // Здесь вызывается функция перевода контента
-    });
-});
-
-// 5. Модальное окно
-const modal = document.getElementById('contact-modal');
-const closeBtn = document.getElementById('close-modal');
-
-// Открытие при клике на любую кнопку Explore (делегирование)
-document.addEventListener('click', (e) => {
-    if (e.target.innerText.includes('Explore') || e.target.closest('.residence-card')) {
-        modal.classList.remove('hidden');
-        modal.classList.add('flex');
-    }
-});
-
-closeBtn.onclick = () => {
-    modal.classList.add('hidden');
-    modal.classList.remove('flex');
-};
-
-// Инициализация
-document.addEventListener('DOMContentLoaded', () => {
-    renderResidences();
-});
-
+// Render Infrastructure
 function renderAmenities() {
     const container = document.getElementById('amenities-container');
+    if (!container) return;
     
-    container.innerHTML = infrastructureData.map(item => `
-        <div class="flex items-start space-x-6 group">
-            <div class="w-12 h-12 flex-shrink-0 opacity-80 group-hover:opacity-100 transition-opacity duration-500">
-                <img src="${item.icon}" alt="${item.title}" class="w-full h-full object-contain">
+    container.innerHTML = projectData.infrastructure.map(item => `
+        <div class="amenity-card flex items-start space-x-8 group">
+            <div class="icon-wrapper w-10 h-10 flex-shrink-0 transition-transform duration-500">
+                <img src="${item.icon}" alt="${item.title}" class="w-full h-full object-contain grayscale group-hover:grayscale-0">
             </div>
-            <div class="border-l pl-6 border-slate-100 group-hover:border-black transition-colors duration-700">
-                <h4 class="text-xs uppercase tracking-[0.2em] font-bold mb-2">${item.title}</h4>
-                <p class="text-sm text-slate-400 leading-relaxed font-light">
+            <div class="border-l pl-8 border-slate-100 group-hover:border-slate-900 transition-colors duration-1000">
+                <h4 class="text-[11px] uppercase tracking-[0.2em] font-bold mb-3 text-slate-800">${item.title}</h4>
+                <p class="text-sm text-slate-400 leading-relaxed font-light mb-4">
                     ${item.description}
                 </p>
-                <span class="inline-block mt-3 text-[10px] uppercase tracking-widest text-slate-300 font-medium">
+                <span class="text-[9px] uppercase tracking-[0.3em] text-slate-300 font-medium">
                     ${item.category}
                 </span>
             </div>
@@ -108,53 +114,48 @@ function renderAmenities() {
     `).join('');
 }
 
-// Вызовите эту функцию в блоке инициализации (DOMContentLoaded)
+// Header & Navigation Logic
+function handleHeader() {
+    const header = document.getElementById('main-header');
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+            header.classList.add('header-scrolled');
+        } else {
+            header.classList.remove('header-scrolled');
+        }
+    });
+}
+
+// Modal Logic
+function handleModal() {
+    const modal = document.getElementById('contact-modal');
+    const closeBtn = document.getElementById('close-modal');
+
+    document.addEventListener('click', (e) => {
+        // Открытие по кнопкам Explore или карточкам
+        if (e.target.closest('.residence-card') || (e.target.tagName === 'BUTTON' && e.target.innerText.includes('EXPLORE'))) {
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            document.body.style.overflow = 'hidden'; // Lock scroll
+        }
+    });
+
+    closeBtn.onclick = () => {
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+        document.body.style.overflow = '';
+    };
+
+    // Close on background click
+    modal.onclick = (e) => {
+        if (e.target === modal) closeBtn.onclick();
+    };
+}
+
+// --- 3. INITIALIZATION ---
 document.addEventListener('DOMContentLoaded', () => {
     renderResidences();
-    renderAmenities(); // Добавлено
+    renderAmenities();
+    handleHeader();
+    handleModal();
 });
-
-const infrastructureData = [
-    {
-        id: 1,
-        title: "Underground Parking",
-        description: "Secure parking with direct elevator access to your floor.",
-        icon: "assets/icons/parking.svg",
-        category: "Safety"
-    },
-    {
-        id: 2,
-        title: "Infinity Pool",
-        description: "Stunning ocean views with a dedicated sun deck and lounge area.",
-        icon: "assets/icons/pool.svg",
-        category: "Leisure"
-    },
-    {
-        id: 3,
-        title: "Etro Cafe",
-        description: "Exclusive dining experience with interior design by Etro Home.",
-        icon: "assets/icons/cafe.svg",
-        category: "Lifestyle"
-    },
-    {
-        id: 4,
-        title: "Fitness & Yoga",
-        description: "State-of-the-art equipment and serene spaces for mindfulness.",
-        icon: "assets/icons/fitness.svg",
-        category: "Health"
-    },
-    {
-        id: 5,
-        title: "Kids' Club",
-        description: "Safe and engaging environment for our youngest residents.",
-        icon: "assets/icons/kids.svg",
-        category: "Family"
-    },
-    {
-        id: 6,
-        title: "24/7 Concierge",
-        description: "Professional management to assist with any request at any time.",
-        icon: "assets/icons/concierge.svg",
-        category: "Service"
-    }
-];
