@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,11 +19,9 @@
             <div class="hidden md:flex space-x-8 items-center uppercase text-xs tracking-widest font-medium">
                 <a href="#projects" class="hover:opacity-50 transition">Residences</a>
                 <a href="#amenities" class="hover:opacity-50 transition">Infrastructure</a>
-                <a href="#location" class="hover:opacity-50 transition">Location</a>
                 <div class="flex space-x-2 border-l pl-8 ml-4 border-slate-300" id="lang-switcher">
                     <button class="font-bold underline" data-lang="en">EN</button>
                     <button class="opacity-50" data-lang="ru">RU</button>
-                    <button class="opacity-50" data-lang="th">TH</button>
                 </div>
             </div>
 
@@ -33,9 +31,9 @@
         </nav>
     </header>
 
-    <section class="relative h-screen flex items-center justify-center overflow-hidden">
-        <video autoplay loop muted playsinline class="absolute z-10 w-auto min-w-full min-h-full max-w-none brightness-50">
-            <source src="assets/video/hero.mp4" type="video/mp4">
+    <section class="relative h-screen flex items-center justify-center overflow-hidden bg-slate-900">
+        <video autoplay loop muted playsinline class="absolute z-10 w-auto min-w-full min-h-full max-w-none object-cover brightness-[0.4]">
+            <source src="your-video-path.mp4" type="video/mp4">
         </video>
         
         <div class="relative z-20 text-center text-white px-4">
@@ -47,17 +45,12 @@
                 Explore Eden
             </button>
         </div>
-        
-        <div class="absolute bottom-10 left-1/2 -translate-x-1/2 z-20 animate-bounce">
-            <div class="w-[1px] h-16 bg-gradient-to-b from-white to-transparent"></div>
-        </div>
     </section>
 
     <section id="projects" class="py-32 bg-gray-50">
         <div class="container mx-auto px-6">
             <h2 class="text-3xl font-['Montserrat'] font-light mb-20 text-center tracking-[0.2em] uppercase text-slate-400">The Residences</h2>
-            <div id="residences-grid" class="grid md:grid-cols-3 gap-12">
-                </div>
+            <div id="residences-grid" class="grid md:grid-cols-3 gap-12"></div>
         </div>
     </section>
 
@@ -67,26 +60,18 @@
                 <h2 class="text-3xl font-['Montserrat'] font-light tracking-[0.2em] uppercase">Infrastructure</h2>
                 <div class="w-12 h-[1px] bg-black mx-auto mt-6"></div>
             </div>
-            
-            <div id="amenities-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-16 gap-y-20">
-                </div>
+            <div id="amenities-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-16 gap-y-20"></div>
         </div>
     </section>
 
-    <div id="contact-modal" class="fixed inset-0 z-[100] hidden items-center justify-center bg-black/90 backdrop-blur-md transition-all duration-500">
+    <div id="contact-modal" class="fixed inset-0 z-[100] hidden items-center justify-center bg-black/90 backdrop-blur-md">
         <div class="bg-white p-12 max-w-lg w-full relative mx-4">
-            <button id="close-modal" class="absolute top-6 right-6 text-3xl font-light hover:rotate-90 transition-transform">&times;</button>
-            <h3 class="text-2xl font-['Montserrat'] mb-2 uppercase tracking-tight">Request Info</h3>
-            <p class="text-slate-400 text-sm mb-8">Leave your details and our concierge will contact you.</p>
+            <button id="close-modal" class="absolute top-6 right-6 text-3xl font-light">&times;</button>
+            <h3 class="text-2xl font-['Montserrat'] mb-6 uppercase tracking-tight">Request Info</h3>
             <form id="lead-form" class="space-y-6">
-                <input type="text" placeholder="Full Name" class="w-full border-b border-slate-200 py-3 focus:outline-none focus:border-black transition" required>
-                <input type="tel" placeholder="Phone Number" class="w-full border-b border-slate-200 py-3 focus:outline-none focus:border-black transition" required>
-                <select class="w-full border-b border-slate-200 py-3 focus:outline-none focus:border-black transition bg-transparent text-slate-500">
-                    <option>General Request</option>
-                    <option>Investment Inquiry</option>
-                    <option>Brochure Download</option>
-                </select>
-                <button class="w-full bg-black text-white py-5 uppercase text-[10px] tracking-[0.3em] mt-8 hover:bg-zinc-800 transition-colors">Send Request</button>
+                <input type="text" placeholder="Full Name" class="w-full border-b py-3 focus:outline-none focus:border-black transition" required>
+                <input type="tel" placeholder="Phone Number" class="w-full border-b py-3 focus:outline-none focus:border-black transition" required>
+                <button class="w-full bg-black text-white py-5 uppercase text-[10px] tracking-[0.3em] hover:bg-zinc-800 transition">Send Request</button>
             </form>
         </div>
     </div>
