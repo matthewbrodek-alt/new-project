@@ -4,14 +4,12 @@ const translations = {
         "hero-title": "A NEW STANDARD OF LUXURY", "hero-subtitle": "Architecture with Meaning", "btn-explore": "Explore the Concept",
         "philosophy-label": "Our Approach", "philosophy-title": "Evolving beyond traditional luxury spaces",
         "philosophy-text": "We believe that a project is not just a result, but a step towards a new lifestyle scenario.",
-        "modal-title": "Request Info", "btn-send": "Send Request"
     },
     ru: {
         "nav-philosophy": "Философия", "nav-residences": "Резиденции", "nav-infrastructure": "Инфраструктура", "nav-team": "Сотрудники",
         "hero-title": "НОВЫЙ СТАНДАРТ РОСКОШИ", "hero-subtitle": "Архитектура со смыслом", "btn-explore": "Исследовать концепцию",
         "philosophy-label": "Наш подход", "philosophy-title": "Развитие за пределами традиционной роскоши",
         "philosophy-text": "Мы верим, что проект — это не просто результат, а шаг к новому сценарию жизни.",
-        "modal-title": "Оставить заявку", "btn-send": "Отправить"
     }
 };
 
@@ -22,12 +20,12 @@ const projectData = {
         { title: "Lake Residences", phase: "Phase 3", img: "lake-render.jpg" }
     ],
     infrastructure: [
-        { title: "Parking", description: "Secure access.", icon: "parking.svg", category: "Safety" },
-        { title: "Pool", description: "Ocean views.", icon: "pool.svg", category: "Leisure" },
-        { title: "Cafe", description: "Interior by Etro.", icon: "cafe.svg", category: "Lifestyle" },
-        { title: "Fitness", description: "Modern gym.", icon: "fitness.svg", category: "Health" },
-        { title: "Concierge", description: "24/7 Service.", icon: "concierge.svg", category: "Service" },
-        { title: "Kids' Club", description: "Eco-play area.", icon: "kids.svg", category: "Family" }
+        { title: "Parking", description: "Secure access.", icon: "parking.jpg", category: "Safety" },
+        { title: "Pool", description: "Ocean views.", icon: "pool.jpg", category: "Leisure" },
+        { title: "Cafe", description: "Interior by Etro.", icon: "cafe.jpg", category: "Lifestyle" },
+        { title: "Fitness", description: "Modern gym.", icon: "fitness.jpg", category: "Health" },
+        { title: "Concierge", description: "24/7 Service.", icon: "concierge.jpg", category: "Service" },
+        { title: "Kids' Club", description: "Eco-play area.", icon: "kids.jpg", category: "Family" }
     ],
     team: [
         { name: "Andrus Bezdar", role: "Founder", img: "eden-render.jpg" },
@@ -37,10 +35,19 @@ const projectData = {
     ]
 };
 
+// Функция закрытия меню
+function closeMenu() {
+    menuToggle.classList.remove('open');
+    overlayMenu.classList.remove('open');
+    header.classList.remove('menu-active');
+    document.body.style.overflow = '';
+}
+
+// Отрисовка
 function renderAll() {
     document.getElementById('residences-grid').innerHTML = projectData.residences.map(item => `
         <div class="residence-card group cursor-pointer reveal">
-            <div class="h-[500px] overflow-hidden bg-slate-100"><img src="${item.img}" class="w-full h-full object-cover"></div>
+            <div class="h-[500px] overflow-hidden bg-slate-100"><img src="${item.img}" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"></div>
             <div class="py-8"><span class="text-[10px] uppercase tracking-[0.4em] text-slate-400">${item.phase}</span><h3 class="text-xl font-light mt-2 uppercase">${item.title}</h3></div>
         </div>
     `).join('');
@@ -80,21 +87,28 @@ function reveal() {
     });
 }
 
-// Menu Toggle Logic
 const menuToggle = document.getElementById('menu-toggle');
 const overlayMenu = document.getElementById('overlay-menu');
+const header = document.getElementById('main-header');
+
+// Открытие/Закрытие бургера
 menuToggle.onclick = () => {
     menuToggle.classList.toggle('open');
     overlayMenu.classList.toggle('open');
+    header.classList.toggle('menu-active');
     document.body.style.overflow = overlayMenu.classList.contains('open') ? 'hidden' : '';
 };
 
+// ЗАКРЫТИЕ ПРИ КЛИКЕ НА ССЫЛКУ (Новое)
+document.querySelectorAll('.menu-link').forEach(link => {
+    link.onclick = () => closeMenu();
+});
+
 window.onscroll = () => {
-    document.getElementById('main-header').classList.toggle('header-scrolled', window.scrollY > 50);
+    header.classList.toggle('header-scrolled', window.scrollY > 50);
     reveal();
 };
 
 document.querySelectorAll('.lang-btn').forEach(btn => btn.onclick = () => setLanguage(btn.dataset.lang));
-document.getElementById('close-modal').onclick = () => document.getElementById('contact-modal').classList.add('hidden');
 
 document.addEventListener('DOMContentLoaded', () => { renderAll(); setLanguage('en'); reveal(); });
