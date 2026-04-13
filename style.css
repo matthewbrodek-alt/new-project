@@ -1,42 +1,136 @@
-body {
-    -webkit-font-smoothing: antialiased;
-    scroll-behavior: smooth;
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-/* Custom Animations */
+body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+    background-color: #fff;
+    color: #0f172a; /* slate-900 */
+}
+
+/* --- 2. TYPOGRAPHY --- */
+h1, h2, h3, h4, .logo {
+    font-family: 'Montserrat', sans-serif;
+}
+
+p, a, button, input {
+    font-family: 'Lato', sans-serif;
+}
+
+/* --- 3. ANIMATIONS --- */
 @keyframes fade-up {
-    from { opacity: 0; transform: translateY(30px); }
-    to { opacity: 1; transform: translateY(0); }
+    from { 
+        opacity: 0; 
+        transform: translateY(30px); 
+    }
+    to { 
+        opacity: 1; 
+        transform: translateY(0); 
+    }
 }
 
 .animate-fade-up {
     animation: fade-up 1.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
-/* Header States */
-.header-scrolled {
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(15px);
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.03);
-    padding: 0.75rem 0;
+/* Эффект появления при скролле (Reveal) */
+.reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 1.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* Infrastructure Hover Effects */
-.amenity-card {
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* --- 4. HEADER & NAV --- */
+#main-header {
     transition: all 0.5s ease;
 }
 
-.amenity-card:hover .icon-wrapper {
-    transform: translateY(-5px);
+/* Состояние хедера при скролле */
+.header-scrolled {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(15px);
+    padding: 0.75rem 0 !important;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.03);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
 }
 
-/* Custom Scrollbar for Luxury Look */
+.header-scrolled .logo, 
+.header-scrolled a {
+    color: #000;
+}
+
+/* --- 5. COMPONENTS --- */
+
+/* Карточки резиденций */
+.residence-card img {
+    transition: transform 1.5s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: transform;
+}
+
+.residence-card:hover img {
+    transform: scale(1.08);
+}
+
+/* Иконки инфраструктуры */
+.grayscale {
+    filter: grayscale(100%);
+    opacity: 0.6;
+    transition: all 0.5s ease;
+}
+
+.group:hover .grayscale {
+    filter: grayscale(0%);
+    opacity: 1;
+    transform: translateY(-3px);
+}
+
+/* Кастомный скроллбар (премиальный вид) */
 ::-webkit-scrollbar {
-    width: 5px;
+    width: 6px;
 }
+
 ::-webkit-scrollbar-track {
-    background: #f1f1f1;
+    background: #f8fafc;
 }
+
 ::-webkit-scrollbar-thumb {
-    background: #000;
+    background: #0f172a;
+}
+
+/* --- 6. VIDEO BACKGROUND --- */
+video {
+    filter: brightness(0.4);
+    object-fit: cover;
+}
+
+/* --- 7. UTILITIES --- */
+.container {
+    max-width: 1400px;
+}
+
+/* Плавный переход для всех ссылок */
+a {
+    transition: opacity 0.3s ease;
+}
+
+/* Адаптив для мобильных */
+@media (max-width: 768px) {
+    .animate-fade-up {
+        animation-duration: 1.2s;
+    }
+    
+    section {
+        padding-top: 4rem;
+        padding-bottom: 4rem;
+    }
 }
