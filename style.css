@@ -1,34 +1,42 @@
+body {
+    -webkit-font-smoothing: antialiased;
+    scroll-behavior: smooth;
+}
+
+/* Custom Animations */
 @keyframes fade-up {
-    from { opacity: 0; transform: translateY(40px); }
+    from { opacity: 0; transform: translateY(30px); }
     to { opacity: 1; transform: translateY(0); }
 }
 
 .animate-fade-up {
-    animation: fade-up 1.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-    animation-delay: 0.5s;
+    animation: fade-up 1.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
-/* Header Glassmorphism on Scroll */
+/* Header States */
 .header-scrolled {
-    background: rgba(255, 255, 255, 0.8);
-    backdrop-filter: blur(10px);
-    border-bottom: 1px solid rgba(0,0,0,0.05);
-    padding: 0.5rem 0;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(15px);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.03);
+    padding: 0.75rem 0;
 }
 
-/* Luxury Grid Hover */
-.residence-card img {
-    filter: grayscale(20%);
-    transition: all 0.8s ease;
+/* Infrastructure Hover Effects */
+.amenity-card {
+    transition: all 0.5s ease;
 }
 
-.residence-card:hover img {
-    filter: grayscale(0%);
-    transform: scale(1.05);
+.amenity-card:hover .icon-wrapper {
+    transform: translateY(-5px);
 }
 
-/* Typography smoothing */
-body {
-    -webkit-font-smoothing: antialiased;
-    text-rendering: optimizeLegibility;
+/* Custom Scrollbar for Luxury Look */
+::-webkit-scrollbar {
+    width: 5px;
+}
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+::-webkit-scrollbar-thumb {
+    background: #000;
 }
