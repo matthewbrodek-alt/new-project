@@ -25,14 +25,12 @@
             <div class="logo text-2xl font-['Montserrat'] font-bold tracking-tighter">
                 GARDENS <span class="font-light">OF EDEN</span>
             </div>
-            
             <div class="flex items-center space-x-10">
                 <div class="flex space-x-3 text-[10px] tracking-widest font-bold" id="lang-switcher">
                     <button class="lang-btn active transition-all duration-300" data-lang="en">EN</button>
                     <span class="opacity-20">|</span>
                     <button class="lang-btn opacity-40 transition-all duration-300" data-lang="ru">RU</button>
                 </div>
-
                 <button id="menu-toggle" class="group flex flex-col items-end space-y-1.5 focus:outline-none">
                     <span class="w-8 h-[1px] bg-current transition-all duration-500 group-[.open]:-rotate-45 group-[.open]:-translate-y-[3.5px] origin-right"></span>
                     <span class="w-5 h-[1px] bg-current transition-all duration-300 group-[.open]:opacity-0"></span>
@@ -47,13 +45,9 @@
             <source src="your-video-path.mp4" type="video/mp4">
         </video>
         <div class="relative z-20 text-center text-white px-4">
-            <h1 class="text-4xl md:text-7xl font-['Montserrat'] font-light tracking-[0.2em] mb-6 translate-y-10 opacity-0 animate-fade-up" data-i18n="hero-title">
-                A NEW STANDARD OF LUXURY
-            </h1>
+            <h1 class="text-4xl md:text-7xl font-['Montserrat'] font-light tracking-[0.2em] mb-6 translate-y-10 opacity-0 animate-fade-up" data-i18n="hero-title">A NEW STANDARD OF LUXURY</h1>
             <p class="text-lg md:text-xl font-light tracking-widest mb-10 opacity-70 italic" data-i18n="hero-subtitle">Architecture with Meaning</p>
-            <button class="border border-white px-10 py-4 uppercase text-[10px] tracking-[0.3em] hover:bg-white hover:text-black transition-all duration-500" data-i18n="btn-explore">
-                Explore the Concept
-            </button>
+            <button class="border border-white px-10 py-4 uppercase text-[10px] tracking-[0.3em] hover:bg-white hover:text-black transition-all duration-500" data-i18n="btn-explore">Explore the Concept</button>
         </div>
     </section>
 
@@ -63,13 +57,9 @@
                 <div>
                     <span class="text-[10px] uppercase tracking-[0.5em] text-slate-400 block mb-6" data-i18n="philosophy-label">Our Approach</span>
                     <h2 class="text-4xl font-['Montserrat'] font-light leading-tight mb-8" data-i18n="philosophy-title">Evolving beyond traditional luxury spaces</h2>
-                    <p class="text-slate-500 leading-relaxed font-light mb-8" data-i18n="philosophy-text">
-                        We believe that a project is not just a result, but a step towards a new lifestyle scenario. Our architecture combines innovative global practices with a personalized emotional touch.
-                    </p>
+                    <p class="text-slate-500 leading-relaxed font-light mb-8" data-i18n="philosophy-text">We believe that a project is not just a result, but a step towards a new lifestyle scenario.</p>
                 </div>
-                <div class="relative">
-                    <img src="park-render.jpg" alt="Philosophy" class="w-full grayscale hover:grayscale-0 transition-all duration-1000">
-                </div>
+                <div class="relative"><img src="park-render.jpg" class="w-full grayscale hover:grayscale-0 transition-all duration-1000"></div>
             </div>
         </div>
     </section>
@@ -89,23 +79,11 @@
     </section>
 
     <section id="team" class="py-32 bg-gray-50">
-        <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-['Montserrat'] font-light mb-20 text-center tracking-[0.2em] uppercase" data-i18n="nav-team">Team</h2>
-            <div id="team-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12"></div>
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-3xl font-['Montserrat'] font-light mb-20 tracking-[0.2em] uppercase" data-i18n="nav-team">Team</h2>
+            <div id="team-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 text-left"></div>
         </div>
     </section>
-
-    <div id="contact-modal" class="fixed inset-0 z-[100] hidden items-center justify-center bg-black/90 backdrop-blur-md">
-        <div class="bg-white p-12 max-w-lg w-full relative mx-4">
-            <button id="close-modal" class="absolute top-6 right-6 text-3xl font-light">&times;</button>
-            <h3 class="text-2xl font-['Montserrat'] mb-6 uppercase tracking-tight" data-i18n="modal-title">Request Info</h3>
-            <form id="lead-form" class="space-y-6">
-                <input type="text" placeholder="Full Name" class="w-full border-b py-3 focus:outline-none focus:border-black transition">
-                <input type="tel" placeholder="Phone Number" class="w-full border-b py-3 focus:outline-none focus:border-black transition">
-                <button class="w-full bg-black text-white py-5 uppercase text-[10px] tracking-[0.3em] hover:bg-zinc-800 transition" data-i18n="btn-send">Send Request</button>
-            </form>
-        </div>
-    </div>
 
     <script src="main.js"></script>
 </body>
