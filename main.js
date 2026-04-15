@@ -22,18 +22,18 @@ const projectData = {
         { title: "Lake Residences", phase: "Phase 3", img: "mox/lake-render.jpg" }
     ],
     infrastructure: [
-        { title: "Parking", description: "Secure access.", icon: "parking.svg" },
-        { title: "Pool", description: "Ocean views.", icon: "pool.svg" },
-        { title: "Cafe", description: "Interior by Etro.", icon: "cafe.svg" },
-        { title: "Fitness", description: "Modern gym.", icon: "fitness.svg" },
-        { title: "Concierge", description: "24/7 Service.", icon: "concierge.svg" },
-        { title: "Kids' Club", description: "Eco-play area.", icon: "kids.svg" }
+        { title: "Parking", description: "Secure access.", icon: "mini/parking.jpg" },
+        { title: "Pool", description: "Ocean views.", icon: "mini/pool.jpg" },
+        { title: "Cafe", description: "Interior by Etro.", icon: "mini/cafe.jpg" },
+        { title: "Fitness", description: "Modern gym.", icon: "mini/fitness.jpg" },
+        { title: "Concierge", description: "24/7 Service.", icon: "mini/concierge.jpg" },
+        { title: "Kids' Club", description: "Eco-play area.", icon: "mini/kids.jpg" }
     ],
     team: [
-        { name: "Andrus Bezdar", roleKey: "team-1-role", img: "cat/caato.jpg" },
+        { name: "Andrus Novak", roleKey: "team-1-role", img: "cat/caato.jpg" },
         { name: "Alexey Korablyov", roleKey: "team-2-role", img: "cat/caato2.jpg" },
-        { name: "Olga Romanova", roleKey: "team-3-role", img: "cat/caato3.jpg" },
-        { name: "Anna Petrova", roleKey: "team-4-role", img: "cat/caato4.jpg" }
+        { name: "Djonni R2D2", roleKey: "team-3-role", img: "cat/caato3.jpg" },
+        { name: "Mr. Tramp", roleKey: "team-4-role", img: "cat/caato4.jpg" }
     ]
 };
 
