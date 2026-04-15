@@ -40,7 +40,7 @@ const projectData = {
 function renderAll() {
     document.getElementById('residences-grid').innerHTML = projectData.residences.map(item => `
         <div class="residence-card group cursor-pointer reveal">
-            <div class="h-[500px] overflow-hidden bg-slate-100"><img src="${item.img}" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"></div>
+            <div class="h-[500px] overflow-hidden bg-slate-100 dark:bg-slate-700"><img src="${item.img}" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"></div>
             <div class="py-8"><span class="text-[10px] uppercase tracking-[0.4em] text-slate-400">${item.phase}</span><h3 class="text-xl font-light mt-2 uppercase">${item.title}</h3></div>
         </div>
     `).join('');
@@ -48,7 +48,7 @@ function renderAll() {
     document.getElementById('amenities-container').innerHTML = projectData.infrastructure.map(item => `
         <div class="flex items-start space-x-6 group reveal">
             <img src="${item.icon}" class="w-10 h-10 object-contain grayscale group-hover:grayscale-0">
-            <div class="border-l pl-6 border-slate-100 group-hover:border-black transition-all duration-700">
+            <div class="border-l pl-6 border-slate-100 dark:border-slate-800 group-hover:border-black dark:group-hover:border-white transition-all duration-700">
                 <h4 class="text-[11px] uppercase tracking-widest font-bold mb-2">${item.title}</h4>
                 <p class="text-sm text-slate-400 font-light">${item.description}</p>
             </div>
@@ -57,7 +57,7 @@ function renderAll() {
 
     document.getElementById('team-grid').innerHTML = projectData.team.map(member => `
         <div class="team-card reveal group cursor-pointer">
-            <div class="aspect-[3/4] overflow-hidden grayscale hover:grayscale-0 transition-all duration-700 mb-6 bg-slate-200">
+            <div class="aspect-[3/4] overflow-hidden grayscale hover:grayscale-0 transition-all duration-700 mb-6 bg-slate-200 dark:bg-slate-700">
                 <img src="${member.img}" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000">
             </div>
             <h4 class="text-sm font-bold uppercase tracking-widest">${member.name}</h4>
@@ -79,6 +79,17 @@ function reveal() {
         if (el.getBoundingClientRect().top < window.innerHeight - 100) el.classList.add('active');
     });
 }
+
+// Переключение темы
+const themeToggle = document.getElementById('theme-toggle');
+themeToggle.onclick = () => {
+    document.documentElement.classList.toggle('dark');
+    if (document.documentElement.classList.contains('dark')) {
+        localStorage.theme = 'dark';
+    } else {
+        localStorage.theme = 'light';
+    }
+};
 
 const menuToggle = document.getElementById('menu-toggle');
 const overlayMenu = document.getElementById('overlay-menu');
