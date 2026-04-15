@@ -80,7 +80,6 @@ function reveal() {
     });
 }
 
-// Переключение темы
 const themeToggle = document.getElementById('theme-toggle');
 themeToggle.onclick = () => {
     document.documentElement.classList.toggle('dark');
