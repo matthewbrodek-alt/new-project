@@ -5,13 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gardens of Eden | Luxury Architecture</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        // Инициализация темы до загрузки контента
+        tailwind.config = { darkMode: 'class' }
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark')
+        } else {
+            document.documentElement.classList.remove('dark')
+        }
+    </script>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;700&family=Lato:wght@300;400&display=swap" rel="stylesheet">
 </head>
-<body class="bg-white text-slate-900 font-['Lato'] antialiased">
+<body class="bg-white dark:bg-slate-900 text-slate-900 dark:text-white font-['Lato'] antialiased transition-colors duration-500">
 
     <div id="overlay-menu" class="fixed inset-0 z-[60] flex flex-col justify-center items-center opacity-0 pointer-events-none transition-all duration-700">
-        <div class="absolute inset-0 bg-white/60 backdrop-blur-xl"></div>
+        <div class="absolute inset-0 bg-white/60 dark:bg-slate-900/60 backdrop-blur-xl"></div>
         <nav class="relative z-10 text-center space-y-8">
             <a href="#philosophy" class="menu-link block text-3xl md:text-5xl font-['Montserrat'] font-light hover:tracking-widest transition-all duration-500 uppercase" data-i18n="nav-philosophy">Philosophy</a>
             <a href="#projects" class="menu-link block text-3xl md:text-5xl font-['Montserrat'] font-light hover:tracking-widest transition-all duration-500 uppercase" data-i18n="nav-residences">Residences</a>
@@ -26,7 +35,12 @@
                 GARDENS <span class="font-light">OF EDEN</span>
             </div>
             
-            <div class="flex items-center space-x-10">
+            <div class="flex items-center space-x-6 md:space-x-10">
+                <button id="theme-toggle" class="hover:opacity-70 transition-opacity">
+                    <span id="theme-icon-light" class="hidden dark:block material-symbols-outlined text-[20px]">light_mode</span>
+                    <span id="theme-icon-dark" class="block dark:hidden material-symbols-outlined text-[20px]">dark_mode</span>
+                </button>
+
                 <div class="flex space-x-3 text-[10px] tracking-widest font-bold" id="lang-switcher">
                     <button class="lang-btn active transition-all duration-300" data-lang="en">EN</button>
                     <span class="opacity-20">|</span>
@@ -57,13 +71,13 @@
         </div>
     </section>
 
-    <section id="philosophy" class="py-32 bg-white reveal">
+    <section id="philosophy" class="py-32 bg-white dark:bg-slate-900 reveal">
         <div class="container mx-auto px-6">
             <div class="grid md:grid-cols-2 gap-20 items-center">
                 <div>
                     <span class="text-[10px] uppercase tracking-[0.5em] text-slate-400 block mb-6" data-i18n="philosophy-label">Our Approach</span>
                     <h2 class="text-4xl font-['Montserrat'] font-light leading-tight mb-8" data-i18n="philosophy-title">Evolving beyond traditional luxury spaces</h2>
-                    <p class="text-slate-500 leading-relaxed font-light mb-8" data-i18n="philosophy-text">
+                    <p class="text-slate-500 dark:text-slate-400 leading-relaxed font-light mb-8" data-i18n="philosophy-text">
                         We believe that a project is not just a result, but a step towards a new lifestyle scenario. Our architecture combines innovative global practices with a personalized emotional touch.
                     </p>
                 </div>
@@ -74,27 +88,28 @@
         </div>
     </section>
 
-    <section id="projects" class="py-32 bg-gray-50">
+    <section id="projects" class="py-32 bg-gray-50 dark:bg-slate-800">
         <div class="container mx-auto px-6">
             <h2 class="text-3xl font-['Montserrat'] font-light mb-20 text-center tracking-[0.2em] uppercase text-slate-400" data-i18n="nav-residences">Residences</h2>
             <div id="residences-grid" class="grid md:grid-cols-3 gap-12"></div>
         </div>
     </section>
 
-    <section id="amenities" class="py-32 bg-white">
+    <section id="amenities" class="py-32 bg-white dark:bg-slate-900">
         <div class="container mx-auto px-6">
             <h2 class="text-3xl font-['Montserrat'] font-light mb-20 text-center tracking-[0.2em] uppercase" data-i18n="nav-infrastructure">Infrastructure</h2>
             <div id="amenities-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-16 gap-y-20"></div>
         </div>
     </section>
 
-    <section id="team" class="py-32 bg-gray-50">
+    <section id="team" class="py-32 bg-gray-50 dark:bg-slate-800">
         <div class="container mx-auto px-6">
             <h2 class="text-3xl font-['Montserrat'] font-light mb-20 text-center tracking-[0.2em] uppercase" data-i18n="nav-team">Team</h2>
             <div id="team-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12"></div>
         </div>
     </section>
 
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <script src="main.js"></script>
 </body>
 </html>
