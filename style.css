@@ -19,6 +19,7 @@ body { -webkit-font-smoothing: antialiased; scroll-behavior: smooth; overflow-x:
     backdrop-filter: blur(15px);
     padding: 0.75rem 0 !important;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.03);
+    color: #0f172a !important; /* Slate-900 при скролле */
 }
 
 header.menu-active { color: #000 !important; }
