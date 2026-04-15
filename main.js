@@ -17,9 +17,9 @@ const translations = {
 
 const projectData = {
     residences: [
-        { title: "Eden Residences", phase: "Phase 1", img: "eden-render.jpg" },
-        { title: "Park Residences", phase: "Phase 2", img: "park-render.jpg" },
-        { title: "Lake Residences", phase: "Phase 3", img: "lake-render.jpg" }
+        { title: "Eden Residences", phase: "Phase 1", img: "mox/eden-render.jpg" },
+        { title: "Park Residences", phase: "Phase 2", img: "mox/park-render.jpg" },
+        { title: "Lake Residences", phase: "Phase 3", img: "mox/lake-render.jpg" }
     ],
     infrastructure: [
         { title: "Parking", description: "Secure access.", icon: "parking.svg" },
