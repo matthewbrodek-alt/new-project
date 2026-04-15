@@ -30,10 +30,10 @@ const projectData = {
         { title: "Kids' Club", description: "Eco-play area.", icon: "kids.svg" }
     ],
     team: [
-        { name: "Andrus Bezdar", roleKey: "team-1-role", img: "caato.jpg" },
-        { name: "Alexey Korablyov", roleKey: "team-2-role", img: "caato2.jpg" },
-        { name: "Olga Romanova", roleKey: "team-3-role", img: "caato3.jpg" },
-        { name: "Anna Petrova", roleKey: "team-4-role", img: "caato4.jpg" }
+        { name: "Andrus Bezdar", roleKey: "team-1-role", img: "cat/caato.jpg" },
+        { name: "Alexey Korablyov", roleKey: "team-2-role", img: "cat/caato2.jpg" },
+        { name: "Olga Romanova", roleKey: "team-3-role", img: "cat/caato3.jpg" },
+        { name: "Anna Petrova", roleKey: "team-4-role", img: "cat/caato4.jpg" }
     ]
 };
 
